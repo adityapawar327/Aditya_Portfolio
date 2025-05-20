@@ -1,0 +1,101 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 13% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 13% 4%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 13% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 78% 12%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 255 88% 13%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 10%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 266 88% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-neuro-night text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .neuro-flat {
+    @apply bg-neuro-night shadow-neuro-flat rounded-2xl;
+  }
+  
+  .neuro-pressed {
+    @apply bg-neuro-night shadow-neuro-pressed rounded-2xl;
+  }
+  
+  .neuro-convex {
+    @apply bg-neuro-night shadow-neuro-convex rounded-2xl;
+  }
+  
+  .neuro-concave {
+    @apply bg-neuro-night shadow-neuro-concave rounded-2xl;
+  }
+
+  .glass {
+    @apply bg-black/20 backdrop-blur-lg border border-white/10 rounded-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-400 via-purple-500 to-violet-600 bg-clip-text text-transparent;
+  }
+
+  .glow {
+    @apply relative;
+  }
+  
+  .glow::after {
+    @apply content-[''] absolute -z-10 top-0 left-0 right-0 bottom-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-2xl blur-xl opacity-75;
+  }
+  
+  .shimmer {
+    @apply bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%] animate-shimmer;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
